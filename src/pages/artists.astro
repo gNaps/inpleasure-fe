@@ -1,0 +1,91 @@
+---
+import CreatorCard from "../components/CreatorCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+const artists = Array.from(Array(9).keys());
+const socialLinks = [
+  { image: "/onlyfans.svg", link: "", alt: "OnlyFans" },
+  { image: "/instagram.svg", link: "", alt: "Instagram" },
+  { image: "/tiktok.svg", link: "", alt: "TikTok" },
+  { image: "/telegram.svg", link: "", alt: "Telegram" },
+  { image: "/x.svg", link: "", alt: "X" },
+];
+---
+
+<Layout title="inPleasure">
+  <div class="px-5 md:px-40 max-w-none format py-10">
+    <h1 class="mt-3 mb-1 text-white">Artists</h1>
+    <p class="lead mt-1 text-white">
+      I nostri talenti e il nostro orgoglio. Una varietà di content creator
+      appassionati, pronti a offrirti esperienze uniche con incredibili
+      contenuti esclusivi.
+    </p>
+  </div>
+  <div
+    class="px-5 md:px-40 py-10 flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20"
+  >
+    {
+      artists.map((a) => (
+        <CreatorCard
+          name="Nome artist"
+          image="/creator.png"
+          socialLinks={socialLinks}
+        />
+      ))
+    }
+  </div>
+
+  <style>
+    .glass-card {
+      /* background: linear-gradient(
+      180deg,
+      rgba(220, 220, 220, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    ); */
+      /* box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    border-radius: 20px; */
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .service-card {
+      height: 250px;
+      width: 250px;
+    }
+
+    .creator-card {
+      padding-top: 32px;
+    }
+
+    .image-container {
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: 255px;
+      background-image: url("/creator.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    .image-container:after {
+      content: "";
+      background-image: inherit;
+      background-size: inherit;
+      background-repeat: inherit;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+      filter: blur(15px);
+    }
+  </style>
+</Layout>

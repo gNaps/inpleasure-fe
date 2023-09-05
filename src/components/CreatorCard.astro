@@ -1,0 +1,60 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  socialLinks: {image: string, link: string, alt: string}[];
+}
+
+const { image, name, socialLinks } = Astro.props;
+const backgroundImage = `url(${image})`;
+---
+
+<div
+  class="glass-card creator-card flex flex-col items-center justify-center w-60 xl:w-72"
+>
+  <div class="image-container"></div>
+  <p class="text-white text-center text-xl mb-0 mt-10">{name}</p>
+
+  {
+    !!socialLinks && !!socialLinks.length && (
+      <div class="flex items-center gap-5 mt-10">
+        {socialLinks.map((s) => (
+          <>
+            <img src={s.image} class="h-6 m-0" alt={s.alt} />
+          </>
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<style define:vars={{ backgroundImage }}>
+  .creator-card {
+    padding: 32px 24px;
+  }
+
+  .image-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 255px;
+    background-image: var(--backgroundImage);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+  }
+  .image-container:after {
+    content: "";
+    background-image: inherit;
+    background-size: inherit;
+    background-repeat: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(10px);
+  }
+</style>

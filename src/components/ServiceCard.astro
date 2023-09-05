@@ -1,0 +1,28 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+}
+
+const { icon, title } = Astro.props;
+---
+
+<div
+  class="glass-card service-card flex flex-col items-center justify-center p-10"
+>
+  <img
+    src={icon}
+    class="h-24 m-0"
+    alt="Servizi fotografici professionali"
+  />
+  <p class="text-white text-center text-xl">
+    {title}
+  </p>
+</div>
+
+<style>
+  .service-card {
+    height: 250px;
+    width: 250px;
+  }
+</style>
