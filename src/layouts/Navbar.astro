@@ -1,25 +1,24 @@
 ---
+
 ---
 
-<nav
-  class="bg-white fixed w-full z-20 top-0 left-0"
->
+<nav class="bg-white fixed w-full z-20 top-0 left-0">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 text-black"
   >
     <a href="/" class="flex items-center">
-      <img
-        src="/logo-navbar.svg"
-        class="h-8 mr-3"
-        alt="inPleasure Logo"
-      />
+      <img src="/logo-navbar.svg" class="h-8 mr-3" alt="inPleasure Logo" />
     </a>
     <div class="flex md:order-2">
-      <button
-        type="button"
-        class="text-white bg-red hover:bg-red-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
-        >Contattaci</button
-      >
+      <a href="/contact">
+        <button
+          type="button"
+          class="text-white bg-red hover:bg-red-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+        >
+          Contattaci
+        </button>
+      </a>
+
       <button
         data-collapse-toggle="navbar-sticky"
         type="button"
@@ -55,22 +54,18 @@
           <a
             href="/"
             class="block py-2 pl-3 pr-4 text-black rounded md:bg-transparent md:p-0 hover:text-red-light"
-            aria-current="page">Home</a
+            aria-current="page"
           >
+            Home
+          </a>
         </li>
-        <!-- <li>
-          <a
-            href="#"
-            class="block py-2 pl-3 pr-4 text-black rounded md:bg-transparent md:p-0 hover:text-red-light"
-            >About</a
-          >
-        </li> -->
         <li>
           <a
             href="/artists"
             class="block py-2 pl-3 pr-4 text-black rounded md:bg-transparent md:p-0 hover:text-red-light"
-            >Artists</a
           >
+            Artists
+          </a>
         </li>
       </ul>
     </div>

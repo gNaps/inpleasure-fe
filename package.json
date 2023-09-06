@@ -10,9 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vercel": "^4.0.3",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "astro": "^3.0.4",
-    "astro-imagetools": "^0.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.1",
+    "resend": "^1.0.0",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {

@@ -1,5 +1,8 @@
 ---
-import Navbar from "./Navbar.astro";
+//import Navbar from "./Navbar.astro";
+import Navbar from "./Navbar.tsx";
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
 }
@@ -20,9 +23,10 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
-    <Navbar />
+    <Navbar client:load />
     <slot />
     <footer
       class="bg-black w-screen flex flex-col items-center justify-center py-10 max-w-none format px-5 py-10"
@@ -31,7 +35,7 @@ const { title } = Astro.props;
         Inizia ora la tua avventura
       </h1>
       <div class="flex gap-3">
-        <div class="relative flex-1">
+        <!-- <div class="relative flex-1">
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
           >
@@ -56,13 +60,14 @@ const { title } = Astro.props;
             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Digita la tua mail"
           />
-        </div>
-
-        <button
-          type="button"
-          class="text-black bg-white hover:bg-white-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
-          >Contattaci</button
-        >
+        </div> -->
+        <a href="/contact">
+          <button
+            type="button"
+            class="text-black bg-white hover:bg-white-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            >Contattaci subito!</button
+          >
+        </a>
       </div>
       <ul class="list-none flex m-0 text-sm">
         <li>
@@ -122,6 +127,9 @@ const { title } = Astro.props;
   input {
     color: #222222 !important;
   }
+  input.white {
+    color: #ffffff !important;
+  }
 
   .glass-card {
     border-radius: 20px;
@@ -138,11 +146,15 @@ const { title } = Astro.props;
 
   ::-moz-selection {
     color: #222222;
-    background: #F5F6F8;
+    background: #f5f6f8;
   }
 
   ::selection {
     color: #222222;
-    background: #F5F6F8;
+    background: #f5f6f8;
+  }
+
+  .flex-50 {
+    flex: 50%;
   }
 </style>

@@ -1,0 +1,29 @@
+---
+import ContactForm from "../components/ContactForm";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="inPleasure">
+  <div class="px-5 md:px-40 max-w-none format py-10">
+    <h1 class="mt-3 mb-1 text-white">Contattaci</h1>
+    <p class="lead mt-1 text-white">
+      Per qualsiasi domanda, curiosità o siete interessati a diventare un nostro
+      creator: siamo qui per te! Contattaci subito e conosciamoci.
+    </p>
+    <div class="flex justify-between gap-10" style="height: 500px">
+      <ContactForm client:load />
+      <div class="hidden lg:block h-full flex-50 img-contact"></div>
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+
+  .img-contact {
+    background-image: url('/contact.png');
+    background-position: center;
+    background-size: cover;
+  }
+
+</style>

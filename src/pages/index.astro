@@ -2,7 +2,6 @@
 import CreatorCard from "../components/CreatorCard.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../layouts/Navbar.astro";
 ---
 
 <Layout title="inPleasure">
@@ -17,8 +16,8 @@ import Navbar from "../layouts/Navbar.astro";
         tua agenzia per lo sviluppo e crescita della tua carriera come content
         creator.
       </p>
-      <div class="flex gap-3">
-        <div class="relative flex-1">
+      <div class="flex justify-center gap-3">
+        <!-- <div class="relative flex-1">
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
           >
@@ -43,13 +42,14 @@ import Navbar from "../layouts/Navbar.astro";
             class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Digita la tua mail"
           />
-        </div>
-
-        <button
-          type="button"
-          class="text-white bg-red hover:bg-red-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
-          >Contattaci</button
-        >
+        </div> -->
+        <a href="/contact">
+          <button
+            type="button"
+            class="text-white bg-red hover:bg-red-dark focus:ring-4 focus:outline-none focus:ring-red-light font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            >Contattaci subito!</button
+          >
+        </a>
       </div>
     </div>
   </section>
@@ -109,6 +109,6 @@ import Navbar from "../layouts/Navbar.astro";
       <CreatorCard name="Nome artists" image="/creator.png" socialLinks={[]} />
       <CreatorCard name="Nome artists" image="/creator.png" socialLinks={[]} />
     </div>
-    <a href="" class="text-xl text-white mt-10"> Scoprili tutti!</a>
+    <a href="/contact" class="text-xl text-white mt-10"> Scoprili tutti!</a>
   </section>
 </Layout>
