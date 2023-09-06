@@ -8,10 +8,10 @@ export interface emailProps {
 }
 
 const sendMail = async ({ name, email, message }: emailProps) => {
-  const resend = new Resend(import.meta.env.RESEND_API_KEY);
+  const resend = new Resend(import.meta.env.PUBLIC_RESEND_API_KEY);
   resend.emails.send({
     from: "info@gabrielenapoli.dev",
-    to: "gabriele.nap@gmail.com",
+    to: import.meta.env.PUBLIC_MAIL_TO,
     subject: `Hai ricevuto una nuova richiesta da [${name} - ${email}]`,
     html: message,
   });
@@ -29,8 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  console.log('variables', import.meta.env)
-  //await sendMail({name, email, message});
+  await sendMail({name, email, message});
 
   return new Response(
     JSON.stringify({
