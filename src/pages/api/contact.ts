@@ -29,7 +29,8 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  await sendMail({name, email, message});
+  console.log('variables', import.meta.env)
+  //await sendMail({name, email, message});
 
   return new Response(
     JSON.stringify({
