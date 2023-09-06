@@ -9,6 +9,7 @@ export interface emailProps {
 
 const sendMail = async ({ name, email, message }: emailProps) => {
   console.log('begin send')
+  console.log('envs', import.meta.env)
   try {
     const res = await fetch(import.meta.env.PUBLIC_SUPABASE_URL, {
       method: "POST",
