@@ -15,6 +15,9 @@ const sendMail = async ({ name, email, message }: emailProps) => {
     subject: `Hai ricevuto una nuova richiesta da [${name} - ${email}]`,
     html: message,
   });
+
+  console.log('mail inviata !!!')
+  console.log('to ', import.meta.env.PUBLIC_MAIL_TO)
 };
 
 export const POST: APIRoute = async ({ request }) => {
