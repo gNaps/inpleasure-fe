@@ -8,16 +8,25 @@ export interface emailProps {
 }
 
 const sendMail = async ({ name, email, message }: emailProps) => {
-  const resend = new Resend(import.meta.env.PUBLIC_RESEND_API_KEY);
-  resend.emails.send({
-    from: "info@gabrielenapoli.dev",
-    to: import.meta.env.PUBLIC_MAIL_TO,
-    subject: `Hai ricevuto una nuova richiesta da [${name} - ${email}]`,
-    html: message,
-  });
-
-  console.log('mail inviata !!!')
-  console.log('to ', import.meta.env.PUBLIC_MAIL_TO)
+  console.log('begin send')
+  try {
+    const res = await fetch(import.meta.env.PUBLIC_SUPABASE_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        to: import.meta.env.PUBLIC_MAIL_TO,
+        subject: "inPleasure - Hai ricevuto un nuovo messaggio!",
+        html: `Messaggio ricevuto da: <strong>${name} - ${email}</strong> <br><br> ${message}`,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${import.meta.env.PUBLIC_SUPABASE_TOKEN}`,
+      },
+    });
+    console.log('sended')
+  } catch (err) {
+    console.log('error', err)
+  }
+  
 };
 
 export const POST: APIRoute = async ({ request }) => {
@@ -32,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  await sendMail({name, email, message});
+  await sendMail({ name, email, message });
 
   return new Response(
     JSON.stringify({
